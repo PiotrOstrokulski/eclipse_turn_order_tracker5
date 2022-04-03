@@ -45,6 +45,7 @@ class PlayersBloc extends Bloc<PlayersEvent, PlayersState> {
         _players[_players.indexOf(player)] = player.copyWith(
           currentTurnOrderPosition: player.nextTurnOrderPosition,
           nextTurnOrderPosition: 0,
+          isPassed: false,
         );
       }
       _players.sort((a, b) =>
