@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:eclipse_turn_order_tracker5/models/player.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:eclipse_turn_order_tracker5/players_bloc/players_bloc.dart';
 
 class FilledPlayerTile extends StatelessWidget {
   Player player;
@@ -43,7 +42,6 @@ class FilledPlayerTile extends StatelessWidget {
                 onPressed: () {
                   final bloc = context.read<PlayersBloc>();
                   bloc.add(SwitchPlayerPass(player.name));
-                  // pass = true
                 },
               ),
             )

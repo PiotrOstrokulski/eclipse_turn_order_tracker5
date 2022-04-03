@@ -1,8 +1,7 @@
 import 'package:eclipse_turn_order_tracker5/players_bloc/players_bloc.dart';
+import 'package:eclipse_turn_order_tracker5/widgets/filled_player_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../models/player.dart';
-import '../widgets/filled_player_tile.dart';
 
 class TrackerPage extends StatelessWidget {
   const TrackerPage({Key? key}) : super(key: key);
@@ -18,7 +17,6 @@ class TrackerPage extends StatelessWidget {
           Expanded(
             child: BlocBuilder<PlayersBloc, PlayersState>(
               builder: (context, state) {
-                print('temp');
                 if (state is PlayersLoadedState) {
                   return ListView.builder(
                     itemCount: state.players.length,

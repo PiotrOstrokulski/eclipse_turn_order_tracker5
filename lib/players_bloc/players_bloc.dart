@@ -29,17 +29,23 @@ class PlayersBloc extends Bloc<PlayersEvent, PlayersState> {
     });
 
     on<SwitchPlayerPass>((event, emit) {
-      _players.firstWhere((element) => element.name == event.playerName)
-        ..nextTurnOrderPosition = _findTurnOrderPosition()
-        ..switchPass();
+      final player =
+          _players.firstWhere((element) => element.name == event.playerName);
+      final modifiedPlayer = player.copyWith(
+        nextTurnOrderPosition: _findTurnOrderPosition(),
+        isPassed: !player.isPassed,
+      );
 
+      _players[_players.indexOf(player)] = modifiedPlayer;
       emit(PlayersLoadedState(List.from(_players)));
     });
 
     on<StartNextTurn>((event, emit) {
       for (final player in _players) {
-        player.currentTurnOrderPosition = player.nextTurnOrderPosition;
-        player.nextTurnOrderPosition = 0;
+        _players[_players.indexOf(player)] = player.copyWith(
+          currentTurnOrderPosition: player.nextTurnOrderPosition,
+          nextTurnOrderPosition: 0,
+        );
       }
       _players.sort((a, b) =>
           a.currentTurnOrderPosition.compareTo(b.currentTurnOrderPosition));
