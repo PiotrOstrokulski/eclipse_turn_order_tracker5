@@ -13,8 +13,16 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFA70D39),
-        title: Text('home_page'),
+        backgroundColor: Colors.blue[800],
+        title: Center(
+          child: Text(
+            'Select player count',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 30,
+            ),
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),

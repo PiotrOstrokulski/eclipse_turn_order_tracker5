@@ -13,14 +13,14 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => PlayersBloc(),
       child: MaterialApp(
-        theme: ThemeData(
-            scaffoldBackgroundColor: Color(0xFF0A0E21),
-            primaryColor: Color(0xFF0A0E21),
-            colorScheme: ColorScheme.fromSwatch(
-              // primarySwatch: Color(0xFFeb1555),
-              //primarySwatch: Colors.purple.shade400,
-              backgroundColor: Colors.green,
-            )),
+        // theme: ThemeData(
+        //scaffoldBackgroundColor: Color(0xFF0A0E21),
+        //  primaryColor: Color(0xFF0A0E21),
+        //  colorScheme: ColorScheme.fromSwatch(
+        // primarySwatch: Color(0xFFeb1555),
+        //primarySwatch: Colors.purple.shade400,
+        //    backgroundColor: Colors.green,
+        //   )),
         debugShowCheckedModeBanner: false,
         title: 'turn order tracker',
         home: HomePage(),

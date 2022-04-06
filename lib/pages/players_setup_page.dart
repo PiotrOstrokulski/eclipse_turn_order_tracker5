@@ -40,28 +40,35 @@ class _PlayersSetupPageState extends State<PlayersSetupPage> {
                 },
               ),
             ),
-            IconButton(
-              color: Colors.white,
-              onPressed: () {
-                final bloc = context.read<PlayersBloc>();
-                List<Player> playersList = [];
-                for (int i = 0; i < playerTiles.length; i++) {
-                  Player player = Player(
-                    name: playerTiles[i].playerNameController.text,
-                    color: playerTiles[i].color,
-                    currentTurnOrderPosition: i + 1,
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+              child: IconButton(
+                color: Colors.white,
+                onPressed: () {
+                  final bloc = context.read<PlayersBloc>();
+                  List<Player> playersList = [];
+                  for (int i = 0; i < playerTiles.length; i++) {
+                    Player player = Player(
+                      name: playerTiles[i].playerNameController.text,
+                      color: playerTiles[i].color,
+                      currentTurnOrderPosition: i + 1,
+                    );
+                    playersList.add(player);
+                  }
+                  bloc.add(InitializePlayers(playersList));
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TrackerPage(),
+                    ),
                   );
-                  playersList.add(player);
-                }
-                bloc.add(InitializePlayers(playersList));
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => TrackerPage(),
-                  ),
-                );
-              },
-              icon: Icon(Icons.arrow_forward_outlined),
+                },
+                icon: Icon(
+                  Icons.double_arrow_outlined,
+                  color: Colors.black,
+                  size: 50,
+                ),
+              ),
             ),
           ],
         ));

@@ -13,30 +13,42 @@ class FilledPlayerTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        color: player.color,
+        decoration: BoxDecoration(
+          border: Border.all(width: 2),
+          color: player.color,
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              player.name,
-              style: TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.bold,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                player.name,
+                style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             Container(
-              margin: const EdgeInsets.all(20),
-              padding: const EdgeInsets.all(20),
+              margin: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: Colors.red,
-                border: Border.all(color: Colors.green, width: 4),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(10),
+                ),
+                color: Colors.grey[800],
+                border: Border.all(color: Color(0xFF212121), width: 4),
               ),
               child: TextButton(
                 child: Text(
                   player.isPassed ? 'unpass' : 'pass',
                   style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontSize: 30,
+                    // fontWeight: FontWeight.bold,
                   ),
                 ),
                 onPressed: () {

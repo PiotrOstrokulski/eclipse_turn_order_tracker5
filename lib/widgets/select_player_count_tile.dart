@@ -10,9 +10,11 @@ class SelectPlayerCountTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      backgroundColor: Color(0xFFeb1555),
+      backgroundColor: Colors.blue[400],
       heroTag: heroTag,
-      shape: RoundedRectangleBorder(),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+      ),
       child: Text(
         playerCount,
         style: TextStyle(

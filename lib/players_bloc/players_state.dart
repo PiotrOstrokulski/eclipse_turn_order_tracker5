@@ -5,8 +5,9 @@ abstract class PlayersState extends Equatable {
 }
 
 class PlayersLoadedState extends PlayersState {
-  PlayersLoadedState(this.players);
   final List<Player> players;
+  PlayersLoadedState(this.players);
+
   @override
   List<Object?> get props => [players];
 }

@@ -4,7 +4,7 @@ class BlankPlayerTile extends StatefulWidget {
   BlankPlayerTile({Key? key}) : super(key: key);
   TextEditingController playerNameController = TextEditingController();
 
-  Color color = Color(0xFFeb1555);
+  Color color = Color(0xFF42A5F5);
 
   @override
   State<BlankPlayerTile> createState() => _BlankPlayerTileState();
@@ -20,8 +20,18 @@ class _BlankPlayerTileState extends State<BlankPlayerTile> {
         child: Row(
           children: [
             Expanded(
-              child: TextField(
-                controller: widget.playerNameController,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                child: TextField(
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25,
+                  ),
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                  ),
+                  controller: widget.playerNameController,
+                ),
               ),
             ),
             IconButton(
@@ -78,11 +88,11 @@ class _BlankPlayerTileState extends State<BlankPlayerTile> {
                           child: Container(
                             height: 50,
                             width: 50,
-                            color: Colors.blue,
+                            color: Colors.blue[800],
                           ),
                           onTap: () {
                             setState(() {
-                              widget.color = Colors.blue;
+                              widget.color = Color(0xFF1565C0);
                             });
                             Navigator.pop(context);
                           },
