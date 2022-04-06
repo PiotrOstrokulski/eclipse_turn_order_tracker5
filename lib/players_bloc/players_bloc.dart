@@ -3,12 +3,17 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:eclipse_turn_order_tracker5/models/player.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/foundation.dart';
 
 part 'players_event.dart';
+
 part 'players_state.dart';
 
 class PlayersBloc extends Bloc<PlayersEvent, PlayersState> {
   List<Player> _players = <Player>[];
+
+  @visibleForTesting
+  void setPlayers(List<Player> player) => _players = player;
 
   int _findTurnOrderPosition() {
     int turnOrderPosition = 1;

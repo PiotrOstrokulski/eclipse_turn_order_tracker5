@@ -18,7 +18,7 @@ class Player extends Equatable {
 
   @override
   String toString() {
-    return '$name has $color color, his position is $currentTurnOrderPosition and his pass state is $isPassed';
+    return '$name: $color, $currentTurnOrderPosition pos, passed: $isPassed, next: $nextTurnOrderPosition';
   }
 
   // void switchPass() {
