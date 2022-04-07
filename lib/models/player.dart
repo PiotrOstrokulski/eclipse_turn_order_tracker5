@@ -21,10 +21,6 @@ class Player extends Equatable {
     return '$name: $color, $currentTurnOrderPosition pos, passed: $isPassed, next: $nextTurnOrderPosition';
   }
 
-  // void switchPass() {
-  //   isPassed = !isPassed;
-  // }
-
   Player copyWith({
     String? name,
     Color? color,

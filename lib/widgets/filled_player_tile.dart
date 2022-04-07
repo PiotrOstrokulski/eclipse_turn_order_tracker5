@@ -1,9 +1,11 @@
+import 'package:eclipse_turn_order_tracker5/models/constants.dart';
 import 'package:eclipse_turn_order_tracker5/players_bloc/players_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:eclipse_turn_order_tracker5/models/player.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+// ignore: must_be_immutable
 class FilledPlayerTile extends StatelessWidget {
   Player player;
   FilledPlayerTile(this.player);
@@ -27,6 +29,7 @@ class FilledPlayerTile extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 player.name,
+                overflow: TextOverflow.fade,
                 style: TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.bold,
@@ -34,13 +37,13 @@ class FilledPlayerTile extends StatelessWidget {
               ),
             ),
             Container(
-              margin: const EdgeInsets.all(10),
+              margin: const EdgeInsets.all(5),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(
-                  Radius.circular(10),
+                  Radius.circular(kBorderRadiusValue),
                 ),
                 color: Colors.grey[800],
-                border: Border.all(color: Color(0xFF212121), width: 4),
+                border: Border.all(color: Color(0xFF212121), width: 2),
               ),
               child: TextButton(
                 child: Text(
@@ -48,7 +51,6 @@ class FilledPlayerTile extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 30,
-                    // fontWeight: FontWeight.bold,
                   ),
                 ),
                 onPressed: () {

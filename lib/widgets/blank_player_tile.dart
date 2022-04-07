@@ -1,10 +1,12 @@
+import 'package:eclipse_turn_order_tracker5/models/constants.dart';
 import 'package:flutter/material.dart';
 
+//ignore: must_be_immutable
 class BlankPlayerTile extends StatefulWidget {
   BlankPlayerTile({Key? key}) : super(key: key);
   TextEditingController playerNameController = TextEditingController();
 
-  Color color = Color(0xFF42A5F5);
+  Color? color = Color(0xFF42A5F5);
 
   @override
   State<BlankPlayerTile> createState() => _BlankPlayerTileState();
@@ -16,19 +18,32 @@ class _BlankPlayerTileState extends State<BlankPlayerTile> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        color: widget.color,
+        decoration: BoxDecoration(
+          color: widget.color,
+          borderRadius: BorderRadius.all(
+            Radius.circular(kBorderRadiusValue),
+          ),
+        ),
         child: Row(
           children: [
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
                 child: TextField(
+                  maxLength: 12,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 25,
                   ),
                   decoration: InputDecoration(
+                    counterText: '',
                     border: InputBorder.none,
+                    hintText: 'input player name',
+                    hintStyle: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.italic,
+                    ),
                   ),
                   controller: widget.playerNameController,
                 ),
@@ -49,11 +64,11 @@ class _BlankPlayerTileState extends State<BlankPlayerTile> {
                           child: Container(
                             height: 50,
                             width: 50,
-                            color: Colors.red,
+                            color: Colors.red[700],
                           ),
                           onTap: () {
                             setState(() {
-                              widget.color = Colors.red;
+                              widget.color = Colors.red[700];
                             });
                             Navigator.pop(context);
                           },
@@ -62,11 +77,11 @@ class _BlankPlayerTileState extends State<BlankPlayerTile> {
                           child: Container(
                             height: 50,
                             width: 50,
-                            color: Colors.yellow,
+                            color: Colors.yellow[700],
                           ),
                           onTap: () {
                             setState(() {
-                              widget.color = Colors.yellow;
+                              widget.color = Colors.yellow[700];
                             });
                             Navigator.pop(context);
                           },
@@ -75,11 +90,11 @@ class _BlankPlayerTileState extends State<BlankPlayerTile> {
                           child: Container(
                             height: 50,
                             width: 50,
-                            color: Colors.green,
+                            color: Colors.green[700],
                           ),
                           onTap: () {
                             setState(() {
-                              widget.color = Colors.green;
+                              widget.color = Colors.green[700];
                             });
                             Navigator.pop(context);
                           },
@@ -88,11 +103,11 @@ class _BlankPlayerTileState extends State<BlankPlayerTile> {
                           child: Container(
                             height: 50,
                             width: 50,
-                            color: Colors.blue[800],
+                            color: Colors.blue[700],
                           ),
                           onTap: () {
                             setState(() {
-                              widget.color = Color(0xFF1565C0);
+                              widget.color = Colors.blue[700];
                             });
                             Navigator.pop(context);
                           },
@@ -101,11 +116,11 @@ class _BlankPlayerTileState extends State<BlankPlayerTile> {
                           child: Container(
                             height: 50,
                             width: 50,
-                            color: Colors.white,
+                            color: Colors.grey[400],
                           ),
                           onTap: () {
                             setState(() {
-                              widget.color = Colors.white;
+                              widget.color = Colors.grey[400];
                             });
                             Navigator.pop(context);
                           },
@@ -114,11 +129,11 @@ class _BlankPlayerTileState extends State<BlankPlayerTile> {
                           child: Container(
                             height: 50,
                             width: 50,
-                            color: Colors.black,
+                            color: Color(0xFF232323),
                           ),
                           onTap: () {
                             setState(() {
-                              widget.color = Colors.black;
+                              widget.color = Color(0xFF232323);
                             });
                             Navigator.pop(context);
                           },

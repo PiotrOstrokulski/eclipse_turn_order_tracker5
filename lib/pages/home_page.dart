@@ -1,43 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:eclipse_turn_order_tracker5/widgets/select_player_count_tile.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue[800],
-        title: Center(
-          child: Text(
-            'Select player count',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 30,
-            ),
+        centerTitle: true,
+        title: const Text(
+          'Select player count',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 30,
           ),
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(15.0),
+        padding: const EdgeInsets.all(25.0),
         child: GridView.count(
           crossAxisCount: 2,
           mainAxisSpacing: 15,
           crossAxisSpacing: 15,
-          children: [
-            SelectPlayerCountTile('1', 'btn1'),
-            SelectPlayerCountTile('2', 'btn2'),
-            SelectPlayerCountTile('3', 'btn3'),
-            SelectPlayerCountTile('4', 'btn4'),
-            SelectPlayerCountTile('5', 'btn5'),
-            SelectPlayerCountTile('6', 'btn6'),
-          ],
+          children: List.generate(
+            6,
+            (index) => SelectPlayerCountTile(
+              (index + 1).toString(),
+              'btn${index + 1}',
+            ),
+          ),
         ),
       ),
     );
